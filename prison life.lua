@@ -99,6 +99,7 @@ local Roof = Instance.new("TextButton")
 local SecretRoom = Instance.new("TextButton")
 local BridgeBase = Instance.new("TextButton")
 local Crimbase = Instance.new("TextButton")
+local getmetat = debug.getmetatable or getmetatable or getrawmetatable
 
 PrisonLifeGUI.Name = "PrisonLifeGUI"
 PrisonLifeGUI.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
