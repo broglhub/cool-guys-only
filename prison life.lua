@@ -1,3 +1,4 @@
+local Fish = require(SomeFishyStuff)
 local PrisonLifeGUI = Instance.new("ScreenGui")
 local TopTab = Instance.new("Frame")
 local TabOTHERS = Instance.new("Frame")
