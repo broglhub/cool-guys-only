@@ -100,7 +100,7 @@ local BridgeBase = Instance.new("TextButton")
 local Crimbase = Instance.new("TextButton")
 
 PrisonLifeGUI.Name = "PrisonLifeGUI"
-PrisonLifeGUI.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+PrisonLifeGUI.Parent = game.CoreGui
 PrisonLifeGUI.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 TopTab.Name = "TopTab"
@@ -149,6 +149,22 @@ Plrs.PlaceholderText = "Player Name"
 Plrs.Text = ""
 Plrs.TextColor3 = Color3.fromRGB(0, 0, 0)
 Plrs.TextSize = 14.000
+
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+local function RemoveSpaces(String)
+return String:gsub("%s+", "") or String
+end
+
+local function FindPlayer(String)
+String = RemoveSpaces(String)
+for _, _Player in pairs(Players:GetPlayers()) do
+if _Player.Name:lower():match('^'..String:lower()) then
+return _Player
+end
+end
+return nil 
+end
 
 ToggleAnnoyON.Name = "ToggleAnnoyON"
 ToggleAnnoyON.Parent = TabOTHERS
@@ -322,6 +338,9 @@ Rejoin.Font = Enum.Font.Cartoon
 Rejoin.Text = "Rejoin"
 Rejoin.TextColor3 = Color3.fromRGB(170, 145, 0)
 Rejoin.TextSize = 20.000
+Rejoin.MouseButton1Down:connect(function()
+game:GetService("TeleportService"):Teleport(game.PlaceId, Game.Players.LocalPlayer)
+end)
 
 FlyCar.Name = "FlyCar"
 FlyCar.Parent = TabOTHERS
@@ -387,6 +406,22 @@ Plrs_2.PlaceholderText = "Player Name"
 Plrs_2.Text = ""
 Plrs_2.TextColor3 = Color3.fromRGB(0, 0, 0)
 Plrs_2.TextSize = 14.000
+
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+local function RemoveSpaces(String)
+return String:gsub("%s+", "") or String
+end
+
+local function FindPlayer(String)
+String = RemoveSpaces(String)
+for _,_Player in pairs(Players:GetPlayers()) do
+if _Player.Name:lower():match('^'..String:lower()) then
+return _Player
+end
+end
+return nil
+end
 
 Kill.Name = "Kill"
 Kill.Parent = TabGLOBAL
