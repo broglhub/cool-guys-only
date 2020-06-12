@@ -1,7 +1,10 @@
+<<<<<<< HEAD
 local Player = game:GetService("Players").LocalPlayer
 local Mouse = Player:GetMouse()
 local Target = nil
 local Searched = false
+=======
+>>>>>>> 8c13fe541dfa7977efa3508d94df5ccb2f65b3ea
 local PrisonLifeGUI = Instance.new("ScreenGui")
 local TopTab = Instance.new("Frame")
 local ClickEffect = Instance.new("ImageLabel")
@@ -115,6 +118,7 @@ local Roof = Instance.new("TextButton")
 local SecretRoom = Instance.new("TextButton")
 local BridgeBase = Instance.new("TextButton")
 local Crimbase = Instance.new("TextButton")
+<<<<<<< HEAD
 local Page = 1
 local GLOBALAlignment = Instance.new("UIGridLayout")
 local OTHERSAlignment = Instance.new("UIGridLayout")
@@ -125,6 +129,11 @@ local TELEPORTSAlignment = Instance.new("UIGridLayout")
 
 PrisonLifeGUI.Name = "PrisonLifeGUI"
 PrisonLifeGUI.Parent = Player:WaitForChild("PlayerGui")
+=======
+
+PrisonLifeGUI.Name = "PrisonLifeGUI"
+PrisonLifeGUI.Parent = game.CoreGui
+>>>>>>> 8c13fe541dfa7977efa3508d94df5ccb2f65b3ea
 PrisonLifeGUI.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 TopTab.Name = "TopTab"
@@ -239,6 +248,7 @@ Plrs.Text = ""
 Plrs.TextColor3 = Color3.fromRGB(0, 0, 0)
 Plrs.TextSize = 14.000
 
+<<<<<<< HEAD
 ToggleAnnoy.Name = "ToggleAnnoy"
 ToggleAnnoy.Parent = TabOTHERS
 ToggleAnnoy.BackgroundColor3 = Color3.fromRGB(73, 76, 77)
@@ -249,6 +259,44 @@ ToggleAnnoy.Font = Enum.Font.Cartoon
 ToggleAnnoy.Text = "Annoy"
 ToggleAnnoy.TextColor3 = Color3.fromRGB(255, 0, 4)
 ToggleAnnoy.TextSize = 20.000
+=======
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+local function RemoveSpaces(String)
+return String:gsub("%s+", "") or String
+end
+
+local function FindPlayer(String)
+String = RemoveSpaces(String)
+for _, _Player in pairs(Players:GetPlayers()) do
+if _Player.Name:lower():match('^'..String:lower()) then
+return _Player
+end
+end
+return nil 
+end
+
+ToggleAnnoyON.Name = "ToggleAnnoyON"
+ToggleAnnoyON.Parent = TabOTHERS
+ToggleAnnoyON.BackgroundColor3 = Color3.fromRGB(73, 76, 77)
+ToggleAnnoyON.BorderSizePixel = 2
+ToggleAnnoyON.Position = UDim2.new(0.00763358781, 0, 0.0884338021, 0)
+ToggleAnnoyON.Size = UDim2.new(0, 129, 0, 30)
+ToggleAnnoyON.Font = Enum.Font.Cartoon
+ToggleAnnoyON.Text = "Annoy"
+ToggleAnnoyON.TextColor3 = Color3.fromRGB(0, 255, 0)
+ToggleAnnoyON.TextSize = 20.000
+
+ToggleAnnoyOFF.Name = "ToggleAnnoyOFF"
+ToggleAnnoyOFF.Parent = ToggleAnnoyON
+ToggleAnnoyOFF.BackgroundColor3 = Color3.fromRGB(73, 76, 77)
+ToggleAnnoyOFF.BorderSizePixel = 2
+ToggleAnnoyOFF.Size = UDim2.new(0, 128, 0, 30)
+ToggleAnnoyOFF.Font = Enum.Font.Cartoon
+ToggleAnnoyOFF.Text = "Annoy"
+ToggleAnnoyOFF.TextColor3 = Color3.fromRGB(255, 0, 4)
+ToggleAnnoyOFF.TextSize = 20.000
+>>>>>>> 8c13fe541dfa7977efa3508d94df5ccb2f65b3ea
 
 MakeAdmin.Name = "MakeAdmin"
 MakeAdmin.Parent = TabOTHERS
@@ -342,6 +390,9 @@ Rejoin.Font = Enum.Font.Cartoon
 Rejoin.Text = "Rejoin"
 Rejoin.TextColor3 = Color3.fromRGB(255, 0, 4)
 Rejoin.TextSize = 20.000
+Rejoin.MouseButton1Down:connect(function()
+game:GetService("TeleportService"):Teleport(game.PlaceId, Game.Players.LocalPlayer)
+end)
 
 FlyCar.Name = "FlyCar"
 FlyCar.Parent = TabOTHERS
@@ -397,6 +448,22 @@ Plrs2.PlaceholderText = "Player Name"
 Plrs2.Text = ""
 Plrs2.TextColor3 = Color3.fromRGB(0, 0, 0)
 Plrs2.TextSize = 14.000
+
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+local function RemoveSpaces(String)
+return String:gsub("%s+", "") or String
+end
+
+local function FindPlayer(String)
+String = RemoveSpaces(String)
+for _,_Player in pairs(Players:GetPlayers()) do
+if _Player.Name:lower():match('^'..String:lower()) then
+return _Player
+end
+end
+return nil
+end
 
 Kill.Name = "Kill"
 Kill.Parent = TabGLOBAL
