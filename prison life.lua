@@ -3,12 +3,13 @@ local Player = game:GetService("Players").LocalPlayer
 local Mouse = Player:GetMouse()
 local Target = nil
 local Searched = false
+local Click = false
 =======
 >>>>>>> 8c13fe541dfa7977efa3508d94df5ccb2f65b3ea
 local PrisonLifeGUI = Instance.new("ScreenGui")
 local TopTab = Instance.new("Frame")
 local ClickEffect = Instance.new("ImageLabel")
-local Click = false
+local Page = 1
 local TabOTHERS = Instance.new("Frame")
 local ToggleOthers = Instance.new("TextButton")
 local ToggleOthersActive = false
@@ -119,7 +120,6 @@ local SecretRoom = Instance.new("TextButton")
 local BridgeBase = Instance.new("TextButton")
 local Crimbase = Instance.new("TextButton")
 <<<<<<< HEAD
-local Page = 1
 local GLOBALAlignment = Instance.new("UIGridLayout")
 local OTHERSAlignment = Instance.new("UIGridLayout")
 local MASSAlignment = Instance.new("UIGridLayout")
@@ -260,21 +260,6 @@ ToggleAnnoy.Text = "Annoy"
 ToggleAnnoy.TextColor3 = Color3.fromRGB(255, 0, 4)
 ToggleAnnoy.TextSize = 20.000
 =======
-local Players = game:GetService("Players")
-local LocalPlayer = Players.LocalPlayer
-local function RemoveSpaces(String)
-return String:gsub("%s+", "") or String
-end
-
-local function FindPlayer(String)
-String = RemoveSpaces(String)
-for _, _Player in pairs(Players:GetPlayers()) do
-if _Player.Name:lower():match('^'..String:lower()) then
-return _Player
-end
-end
-return nil 
-end
 
 ToggleAnnoyON.Name = "ToggleAnnoyON"
 ToggleAnnoyON.Parent = TabOTHERS
@@ -448,22 +433,6 @@ Plrs2.PlaceholderText = "Player Name"
 Plrs2.Text = ""
 Plrs2.TextColor3 = Color3.fromRGB(0, 0, 0)
 Plrs2.TextSize = 14.000
-
-local Players = game:GetService("Players")
-local LocalPlayer = Players.LocalPlayer
-local function RemoveSpaces(String)
-return String:gsub("%s+", "") or String
-end
-
-local function FindPlayer(String)
-String = RemoveSpaces(String)
-for _,_Player in pairs(Players:GetPlayers()) do
-if _Player.Name:lower():match('^'..String:lower()) then
-return _Player
-end
-end
-return nil
-end
 
 Kill.Name = "Kill"
 Kill.Parent = TabGLOBAL
@@ -1169,14 +1138,21 @@ for i, v in pairs (TabTELEPORTS:GetChildren()) do
 	end
 end
 
-function FindPlayer(player)
-	for i,v in pairs (game:GetService("Players"):GetPlayers()) do
-		if v.Name == player then
+
+local function RemoveSpaces(String)
+	return String:gsub("%s+", "") or String
+end
+
+local function FindPlayer(String)
+	String = RemoveSpaces(String)
+	for _,_Player in pairs(Players:GetPlayers()) do
+		if _Player.Name:lower():match('^'..String:lower()) then
 			Target = v
 			Searched = true
+			return _Player
 		end
-	end	
-    Searched = true
+	end
+	return nil
 end
 
 function Effect(Button, X, Y)
