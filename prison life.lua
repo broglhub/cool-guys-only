@@ -1,11 +1,11 @@
-<<<<<<< HEAD
+--<<<<<<< HEAD
 local Player = game:GetService("Players").LocalPlayer
 local Mouse = Player:GetMouse()
 local Target = nil
 local Searched = false
 local Click = false
-=======
->>>>>>> 8c13fe541dfa7977efa3508d94df5ccb2f65b3ea
+--=======
+-->>>>>>> 8c13fe541dfa7977efa3508d94df5ccb2f65b3ea
 local PrisonLifeGUI = Instance.new("ScreenGui")
 local TopTab = Instance.new("Frame")
 local ClickEffect = Instance.new("ImageLabel")
@@ -119,7 +119,7 @@ local Roof = Instance.new("TextButton")
 local SecretRoom = Instance.new("TextButton")
 local BridgeBase = Instance.new("TextButton")
 local Crimbase = Instance.new("TextButton")
-<<<<<<< HEAD
+--<<<<<<< HEAD
 local GLOBALAlignment = Instance.new("UIGridLayout")
 local OTHERSAlignment = Instance.new("UIGridLayout")
 local MASSAlignment = Instance.new("UIGridLayout")
@@ -129,11 +129,11 @@ local TELEPORTSAlignment = Instance.new("UIGridLayout")
 
 PrisonLifeGUI.Name = "PrisonLifeGUI"
 PrisonLifeGUI.Parent = Player:WaitForChild("PlayerGui")
-=======
+----=======
 
 PrisonLifeGUI.Name = "PrisonLifeGUI"
 PrisonLifeGUI.Parent = game.CoreGui
->>>>>>> 8c13fe541dfa7977efa3508d94df5ccb2f65b3ea
+-->>>>>>> 8c13fe541dfa7977efa3508d94df5ccb2f65b3ea
 PrisonLifeGUI.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 TopTab.Name = "TopTab"
@@ -248,7 +248,7 @@ Plrs.Text = ""
 Plrs.TextColor3 = Color3.fromRGB(0, 0, 0)
 Plrs.TextSize = 14.000
 
-<<<<<<< HEAD
+--<<<<<<< HEAD
 ToggleAnnoy.Name = "ToggleAnnoy"
 ToggleAnnoy.Parent = TabOTHERS
 ToggleAnnoy.BackgroundColor3 = Color3.fromRGB(73, 76, 77)
@@ -259,29 +259,9 @@ ToggleAnnoy.Font = Enum.Font.Cartoon
 ToggleAnnoy.Text = "Annoy"
 ToggleAnnoy.TextColor3 = Color3.fromRGB(255, 0, 4)
 ToggleAnnoy.TextSize = 20.000
-=======
+--=======
 
-ToggleAnnoyON.Name = "ToggleAnnoyON"
-ToggleAnnoyON.Parent = TabOTHERS
-ToggleAnnoyON.BackgroundColor3 = Color3.fromRGB(73, 76, 77)
-ToggleAnnoyON.BorderSizePixel = 2
-ToggleAnnoyON.Position = UDim2.new(0.00763358781, 0, 0.0884338021, 0)
-ToggleAnnoyON.Size = UDim2.new(0, 129, 0, 30)
-ToggleAnnoyON.Font = Enum.Font.Cartoon
-ToggleAnnoyON.Text = "Annoy"
-ToggleAnnoyON.TextColor3 = Color3.fromRGB(0, 255, 0)
-ToggleAnnoyON.TextSize = 20.000
-
-ToggleAnnoyOFF.Name = "ToggleAnnoyOFF"
-ToggleAnnoyOFF.Parent = ToggleAnnoyON
-ToggleAnnoyOFF.BackgroundColor3 = Color3.fromRGB(73, 76, 77)
-ToggleAnnoyOFF.BorderSizePixel = 2
-ToggleAnnoyOFF.Size = UDim2.new(0, 128, 0, 30)
-ToggleAnnoyOFF.Font = Enum.Font.Cartoon
-ToggleAnnoyOFF.Text = "Annoy"
-ToggleAnnoyOFF.TextColor3 = Color3.fromRGB(255, 0, 4)
-ToggleAnnoyOFF.TextSize = 20.000
->>>>>>> 8c13fe541dfa7977efa3508d94df5ccb2f65b3ea
+-->>>>>>> 8c13fe541dfa7977efa3508d94df5ccb2f65b3ea
 
 MakeAdmin.Name = "MakeAdmin"
 MakeAdmin.Parent = TabOTHERS
@@ -1090,6 +1070,12 @@ Crimbase.Font = Enum.Font.Cartoon
 Crimbase.Text = "Criminal Base"
 Crimbase.TextColor3 = Color3.fromRGB(255, 0, 4)
 Crimbase.TextSize = 20.000
+
+game.Players.PlayerRemoving:Connect(function(plr)
+	if plr.Name == Player.Name then
+		PrisonLifeGUI:Destroy()
+	end
+end)
 
 for i, v in pairs (TabGLOBAL:GetChildren()) do
 	if v.ClassName == "TextButton" then
