@@ -1131,9 +1131,9 @@ end
 
 local function FindPlayer(String)
 	String = RemoveSpaces(String)
-	for _,_Player in pairs(Players:GetPlayers()) do
+	for _,_Player in pairs(game:GetService("Players"):GetPlayers()) do
 		if _Player.Name:lower():match('^'..String:lower()) then
-			Target = v
+			Target = _Player
 			Searched = true
 			return _Player
 		end
